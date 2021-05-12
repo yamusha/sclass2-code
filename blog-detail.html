@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Kitchen Enjoy's Blog การทำอาหารเน้นทำแบบง่ายๆ
+      ในสไตล์ของจอยไม่มีอะไรยุ่งยากซับซ้อน สามารถทำกินเองที่บ้านได้สบายๆ
+    </title>
+    <!-- CSS only -->
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="assets/images/logo.png"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Mali"
+      rel="stylesheet"
+    />
+    <link
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <div id="app">
+        <navbar-component></navbar-component>
+      <section class="container my-5">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <nav aria-label="breadcrumb" class="mt-5">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="./">Blogs</a></li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  เค้กไมโล นึ่งได้ด้วยหรอ? แล้วจะอร่อยมั้ย?
+                </li>
+              </ol>
+            </nav>
+            <img
+              src="http://i3.ytimg.com/vi/eYa3Ruxw9jU/maxresdefault.jpg"
+              class="rounded img-fluid"
+              alt="Kitchen Enjoy"
+            />
+            <div class="p-4 text-center">
+              <h1 class="h3">เค้กไมโล นึ่งได้ด้วยหรอ? แล้วจะอร่อยมั้ย?</h1>
+              <h2 class="h6">
+                เค้กไมโลนึ่งไร้แป้ง วิธีทําไม่ยาก วัตถุดิบหาง่ายมากๆ
+                ถ้าอยากรู้ว่ารสชาติเป็นยังไงอย่าลืมไปลองทำกันดูนะคะ^^
+              </h2>
+              <p class="text-muted">
+                01 มกราคม 2021 | <i class="fas fa-eye"></i> 1,000
+              </p>
+            </div>
+            <!-- เนื้อหาบทความ -->
+            <div>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
+              assumenda similique doloremque asperiores incidunt quas iusto
+              minima eligendi dicta odit error velit dolores voluptate rerum
+              ratione, laboriosam necessitatibus. Ipsum, sapiente? Voluptas,
+              dolores expedita, magni minima esse eveniet rem porro sed debitis,
+              dolore repudiandae quas delectus assumenda iste impedit ratione!
+              Perspiciatis distinctio accusamus nobis quod incidunt, temporibus
+              odit voluptatibus neque? Eveniet. Adipisci illo rem totam porro.
+              Aliquam ullam culpa vel voluptatibus cum ratione aliquid
+              perspiciatis fuga cumque amet deleniti suscipit vero consectetur
+              sequi, expedita laborum ipsa adipisci dicta eum aperiam odit.
+              Praesentium sit commodi dolores voluptatum. Ex eum maxime
+              voluptatibus, excepturi, at quas dolorem tenetur voluptatum harum
+              veritatis, repellendus eveniet consequatur illum? Ullam veniam
+              sunt necessitatibus quod eum quibusdam, accusantium sit? Ducimus
+              amet dolorum at vero minima iste deserunt necessitatibus? Ipsam
+              nobis soluta doloribus corrupti rem ullam accusamus vero magnam,
+              eveniet corporis fugiat dignissimos dolorum nesciunt incidunt hic
+              eaque reprehenderit facere!
+            </div>
+            <!-- สิ้นสุดบทความ -->
+          </div>
+        </div>
+      </section>
+      <footer-component></footer-component>
+
+      <div class="progressContainer">
+        <div class="progressBar"></div>
+      </div>
+    </div>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="node_modules/vue/dist/vue.min.js"></script>
+    <script src="node_modules/http-vue-loader/src/httpVueLoader.js"></script>
+    <script src="node_modules/axios/dist/axios.min.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        components: {
+          "navbar-component": httpVueLoader("./components/navbar.vue"),
+          "footer-component": httpVueLoader("./components/footer.vue"),
+        },
+      });
+    </script>
+  </body>
+</html>

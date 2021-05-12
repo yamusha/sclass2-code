@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Account Page</title>
+
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="assets/images/logo.png"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Mali"
+      rel="stylesheet"
+    />
+    <link
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <div id="app">
+    <navbar-component></navbar-component>
+
+    <!-- Profile Header -->
+    <section class="profile-page d-flex align-items-center">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-11">
+            <img
+              class="cover"
+              src="assets/images/uploads/image_cover.jpg"
+              alt="cover"
+            />
+          </div>
+          <div class="col-12 col-lg-11">
+            <img
+              class="avatar"
+              src="assets/images/uploads/avatar.png"
+              alt="avatar"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="container text-center">
+      <h1 class="font-weight-bolder">ชื่อจริง นามสกุล</h1>
+      <p class="text-mute">คำแนะนำตัวเองแบบสั้นๆ</p>
+      <hr class="mx-auto w-75" />
+    </section>
+
+    <!-- ข้อมูลส่วนตัว -->
+    <section class="container mb-5 at">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-11">
+          <div class="row">
+            <div class="col-lg-3">
+              <div class="list-group list-profile sticky-top">
+                <a
+                  href="profile.html"
+                  class="list-group-item list-group-item-action "
+                >
+                  <i class="far fa-user"></i> ข้อมูลส่วนตัว
+                </a>
+                <a
+                  href="account.html"
+                  class="list-group-item list-group-item-action active"
+                >
+                  <i class="far fa-user-cog"></i> ตั้งค่าบัญชี
+                </a>
+                <a
+                  href="favorites.html"
+                  class="list-group-item list-group-item-action"
+                >
+                  <i class="far fa-heart"></i> บทความที่ชอบ
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-9">
+              <div class="border-0 card">
+                <div class="card-body">
+                  <form class="row gy-4">
+                    <p class="title">
+                      ชื่อผู้ใช้งาน <span>Admin</span>
+                    </p>
+                    <hr>
+                    <p>
+                      แก้ไขรหัสผ่าน</p>
+                      <div class="form-group">
+                        <input type="password" class="form-control" placeholder="กรอกรหัสผ่านเดิม">
+                      </div>
+                      <div class="form-group">
+                        <input type="password" class="form-control" placeholder="กรอกรหัสผ่านใหม่">
+                      </div>
+                      <div class="form-group">
+                        <input type="password" class="form-control" placeholder="กรอกรหัสผ่านใหม่อีกครั้ง">
+                      </div>
+                    <button type="submit" class="btn btn-danger">เปลี่ยนรหัสผ่าน</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer -->
+    <footer-component></footer-component>
+  </div>
+
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="node_modules/vue/dist/vue.min.js"></script>
+    <script src="node_modules/http-vue-loader/src/httpVueLoader.js"></script>
+    <script src="node_modules/axios/dist/axios.min.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        components: {
+          "navbar-component": httpVueLoader("./components/navbar.vue"),
+          "footer-component": httpVueLoader("./components/footer.vue"),
+        },
+      });
+    </script>
+      </body>
+</html>

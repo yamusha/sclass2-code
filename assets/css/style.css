@@ -1,0 +1,266 @@
+/* Table Of Content */
+/*
+  Section Global
+  Section Header
+  Section Navbar
+  Section Card
+  Section Star
+  Section Footer
+  Section ProgressBar
+*/
+
+/* Section Global */
+html,
+body {
+  font-family: "Mali", cursive;
+}
+
+/*Section Header*/
+.page-header {
+  height: 400px;
+  background-image: url(../images/bg1.jpg);
+  background-size: cover;
+  background-position: top;
+  text-align: center;
+  color: #ffffff;
+}
+
+.avatar{
+  display: block;
+  width: 160px;
+  height: 160px;
+  margin: -120px auto 10px;
+  border-radius: 50%;
+  box-shadow: 0px 3px 24px rgb(0, 0, 0, 0.1);
+}
+
+/* Section Navbar */
+.navbar-dark .navbar-nav .nav-link {
+  color: rgb(255, 255, 255, 0.8);
+}
+.navbar-dark .navbar-nav .nav-link:focus,
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .active > .nav-link {
+  color: rgba(255, 255, 255, 1);
+  font-weight: 600;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: rgb(0, 0, 0, 0.8);
+}
+
+.navbar-light .navbar-nav .nav-link:focus,
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .active > .nav-link {
+  color: rgba(0, 0, 0, 1);
+  font-weight: 600;
+}
+
+/* CSS ที่เกี่ยวข้องกับเนื้อหาการปรับแต่ง Navbar */
+
+.navbar ul li {
+  line-height: 2;
+  cursor: pointer;
+}
+
+.profile-img {
+  border-radius: 50%;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  object-fit: cover;
+}
+
+.navbar li.dropdown {
+  background: #bfdcf54d;
+  border-radius: 30px;
+  padding: 0 5px;
+}
+
+.navbar li.dropdown:hover {
+  background: #eef7ffa6;
+  transition: 0.2s;
+}
+
+.navbar a:hover {
+  transform: scale(0.96);
+}
+
+.ul-navbar {
+  float: right;
+  border-radius: 30px;
+}
+
+@media (max-width: 767px) {
+  .ul-navbar {
+    background: #f8f9fa;
+  }
+  .ul-navbar a {
+    text-align: right;
+    color: #000 !important;
+  }
+}
+
+/* Section Profile */
+.profile-page {
+  background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(245,182,250,1) 100%) !important;
+}
+.profile-page .cover {
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.33) 0px 0px 10px;
+  height: 450px;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 991px) {
+  .profile-page .cover {
+      height: 350px;
+  }
+}
+
+/* Section Card */
+.card-wrapper {
+  border: 0;
+  box-shadow: 0 3px 24px rgb(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 15px;
+  height: 100%;
+}
+
+.card-image {
+  margin-bottom: -1rem;
+}
+
+.card-image .image-overlay {
+  width: 70px;
+  height: 70px;
+  margin-top: -35px;
+  border-radius: 50%;
+  box-shadow: 0px 3px 24px rgb(0, 0, 0, 0.1);
+}
+
+/* Section Star */
+.star-rating {
+  color: gold;
+  font-size: 0.9em;
+  position: relative;
+  display: inline-block;
+}
+
+.star-rating + small {
+  font-size: 0.7em;
+}
+
+.star-current {
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* Section Footer */
+.site-footer {
+  background-color: #26272b;
+  color: #737373;
+  padding: 45px;
+}
+
+.site-footer h6 {
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.site-footer a {
+  color: #737373;
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  color: #ffffff;
+}
+
+.footer-links {
+  list-style: none;
+  padding-left: 0;
+  line-height: 30px;
+}
+
+.social-icons {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.social-icons li {
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+.social-icons a {
+  color: #ffffff;
+  display: inline-block;
+  background-color: #33353d;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 100%;
+  margin-right: 10px;
+  transition: 0.4s;
+}
+
+.social-icons a.facebook:hover {
+  background-color: #3b5998;
+}
+
+.social-icons a.youtube:hover {
+  background-color: #ff0000;
+}
+
+/* Section ProgressBar */
+.progressContainer {
+  left: 0;
+  width: 100%;
+  height: 0.4em;
+  margin-bottom: 0px;
+  position: fixed;
+  bottom: 0px;
+  overflow: hidden;
+  background-color: #ffffff;
+  content: "";
+  display: table;
+  table-layout: fixed;
+  z-index: 9999;
+}
+
+.progressBar {
+  width: 0%;
+  float: left;
+  height: 100%;
+  z-index: 9999;
+  max-width: 100%;
+  background-color: rgb(236 123 238);
+  -webkit-transition: width 0.6s ease;
+  -o-transition: width 0.6s ease;
+  transition: width 0.6s ease;
+}
+
+/* Section Profile List */
+.list-profile .list-group-item {
+  padding: 20px 10px;
+  font-size: 18px;
+  border: 0;
+  letter-spacing: 2px;
+}
+
+.list-profile .list-group-item.active{
+  color:#171717;
+  background-color: #FFFFFF;
+  font-weight: 600;
+  border-bottom: 2px solid #ff00de !important;
+}
+
+.list-profile{
+  top: 75px;
+}

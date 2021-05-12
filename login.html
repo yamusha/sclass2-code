@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="assets/images/logo.png"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Mali"
+      rel="stylesheet"
+    />
+    <link
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <style>
+
+      .bg {
+        background: #fb86d2;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: -1;
+        clip-path: polygon(0 0, 55% 0, 45% 100%, 0% 100%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg"></div>
+    <div id="app" class="container">
+      <div class="row justify-content-center vh-100 align-items-center h-100">
+        <div class="col-md-6">
+          <div class="card p-5 shadow">
+            <div class="card-title">
+              <img
+                src="assets/images/text_logo.png"
+                class="img-fluid d-block mx-auto"
+                alt="logo"
+              />
+            </div>
+            <div class="card-body">
+              <form @submit.prevent="onSubmit">
+                <div class="mb-3 row">
+                  <label for="username" class="col-sm-3 col-form-label"
+                    >ชื่อผู้ใช้งาน</label
+                  >
+                  <div class="col-sm-9">
+                    <input
+                      type="text"
+                      id="username"
+                      v-model="auth.username"
+                      class="form-control"
+                      placeholder="username"
+                    />
+                  </div>
+                </div>
+                <div class="mb-3 row">
+                  <label for="password" class="col-sm-3 col-form-label"
+                    >รหัสผ่าน</label
+                  >
+                  <div class="col-sm-9">
+                    <input
+                      type="password"
+                      id="password"
+                      v-model="auth.password"
+                      class="form-control"
+                      placeholder="password"
+                    />
+                  </div>
+                </div>
+                <div class="d-grid mb-3">
+                  <button class="btn btn-primary">เข้าสู่ระบบ</button>
+                </div>
+                <p class="text-center">
+                  ไม่มีบัญชีผู้ใช้? <a href="register.html"> สร้างบัญชีใหม่ </a>
+                  <br />
+                  <small><a href="./"> กลับหน้าหลัก </a></small>
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="node_modules/vue/dist/vue.min.js"></script>
+    <script src="node_modules/axios/dist/axios.min.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data(){
+          return {
+            auth:{
+              username: null,
+              password: null
+            }
+          }
+        },
+        methods: {
+          onSubmit(){
+            alert(this.auth.username +': เข้าสู่ระบบสำเร็จ ')
+            localStorage.setItem('auth_token', 'asadsadsadasd')
+            localStorage.setItem('auth_data', this.auth.username)
+            location.assign('./')
+          }
+        },
+      })
+    </script>
+    </body>
+</html>

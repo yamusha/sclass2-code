@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register Page</title>
+
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="assets/images/logo.png"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Mali"
+      rel="stylesheet"
+    />
+    <link
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <style>
+      .bg {
+        background: #fb86d2;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: -1;
+        clip-path: polygon(0 0, 55% 0, 45% 100%, 0% 100%);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div class="bg"></div>
+      <div id="register" class="container">
+        <div class="row justify-content-center vh-100 align-items-center h-100">
+          <div class="col-12 col-lg-8 col-xl-6">
+            <div class="card p-2 p-md-5 shadow">
+              <div class="card-title">
+                <img
+                  src="assets/images/text_logo.png"
+                  class="img-fluid d-block mx-auto"
+                  alt="logo"
+                />
+              </div>
+              <div class="card-body">
+                <form @submit.prevent="submitRegister">
+                  <div class="row mb-3">
+                    <label for="firstname" class="col-sm-3 col-form-label"
+                      >ชื่อ</label
+                    >
+                    <div class="col-sm-9">
+                      <input
+                        type="text"
+                        id="firstname"
+                        class="form-control"
+                        placeholder="firstname"
+                        v-model="auth.firstname"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label for="lastname" class="col-sm-3 col-form-label"
+                      >นามสกุล</label
+                    >
+                    <div class="col-sm-9">
+                      <input
+                        type="text"
+                        id="lastname"
+                        class="form-control"
+                        placeholder="lastname"
+                        v-model="auth.lastname"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <label for="email" class="col-sm-3 col-form-label"
+                      >อีเมล</label
+                    >
+                    <div class="col-sm-9">
+                      <input
+                        type="email"
+                        id="email"
+                        class="form-control"
+                        placeholder="email"
+                        v-model="auth.email"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <label for="username" class="col-sm-3 col-form-label"
+                      >ชื่อผู้ใช้งาน</label
+                    >
+                    <div class="col-sm-9">
+                      <input
+                        type="text"
+                        id="username"
+                        class="form-control"
+                        placeholder="username"
+                        v-model="auth.username"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <label for="password" class="col-sm-3 col-form-label"
+                      >รหัสผ่าน</label
+                    >
+                    <div class="col-sm-9">
+                      <input
+                        type="password"
+                        id="password"
+                        class="form-control"
+                        placeholder="password"
+                        v-model="auth.password"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <label for="repeatPassword" class="col-sm-3 col-form-label"
+                      >รหัสผ่าน</label
+                    >
+                    <div class="col-sm-9">
+                      <input
+                        type="password"
+                        id="repeatPassword"
+                        class="form-control"
+                        placeholder="repeatPassword"
+                        v-model="auth.repeatPassword"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="d-grid mb-3">
+                    <button class="btn btn-primary">สมัครสมาชิก</button>
+                  </div>
+                  <p class="text-center">
+                    มีบัญชีผู้ใช้อยู่แล้ว ?
+                    <a href="login.html"> เข้าสู่ระบบ </a>
+                    <br />
+                    <small><a href="./"> กลับหน้าหลัก </a></small>
+                  </p>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="node_modules/vue/dist/vue.min.js"></script>
+    <script src="node_modules/axios/dist/axios.min.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data() {
+          return {
+            auth: {
+              firstname: null,
+              lastname: null,
+              username: null,
+              password: null,
+              repeatPassword: null,
+            },
+          };
+        },
+        methods: {
+          submitRegister() {
+            alert('Register complete')
+            location.assign('login.html')
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

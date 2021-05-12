@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sClass2</title>
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="assets/images/logo.png"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Mali"
+      rel="stylesheet"
+    />
+    <link
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+
+  <body>
+    <div id="app">
+      <navbar-component></navbar-component>
+
+      <header class="page-header d-flex align-items-center">
+        <div class="container">
+          <h1 class="fw-bold">{{subject}}</h1>
+          <h2>{{title}}</h2>
+        </div>
+      </header>
+
+      <section class="container">
+        <div class="row justify-content-center">
+          <section class="col-12 col-md-8">
+            <img src="assets/images/logo_bg.jpg" class="avatar" alt="" />
+            <div class="mb-3 input-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Search... Workshop, Section"
+                aria-label="Username"
+                aria-describedby="basic-addon1"
+              />
+              <span
+                class="input-group-text btn btn-outline-info"
+                id="basic-addon1"
+                ><i class="fas fa-search"></i
+              ></span>
+            </div>
+          </section>
+        </div>
+        <div class="py-5 row g-3">
+          <section class="pb-3 text-center col-12">
+            <h3>บทความล่าสุด</h3>
+          </section>
+
+          <blog-component v-for="blog in blogs" :key="blog.blog_id" :blog="blog"></blog-component>
+          
+        </div>
+      </section>
+      
+    
+      <footer-component></footer-component>
+      
+
+      
+    </div>
+
+
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="node_modules/vue/dist/vue.min.js"></script>
+    <script src="node_modules/http-vue-loader/src/httpVueLoader.js"></script>
+    <script src="node_modules/axios/dist/axios.min.js"></script>
+
+
+    <script>
+      new Vue({
+        el: "#app",
+        components:{
+          'navbar-component': httpVueLoader('./components/navbar.vue'),
+          'blog-component': httpVueLoader('./components/blog.vue'),
+          'footer-component': httpVueLoader('./components/footer.vue')
+        },
+        data() {
+          return {
+            subject: "sClass's Blog",
+            title: "ทดสอบ Workshop บทเรียนกับ sClass2",
+            blogs: null
+          };
+        },
+        mounted() {
+          this.getBlogs()
+        },
+        methods: {
+          getBlogs(){
+            axios({
+            method: 'GET',
+            url: 'blog.json'
+          }).then((res)=>{
+            this.blogs = res.data.response
+            // console.log(this.blogs);
+          }).catch((err) => {
+            console.log(err);
+          })
+          }
+        },
+      });
+    </script>
+  </body>
+</html>

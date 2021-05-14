@@ -21,6 +21,7 @@ $router->get('/', function() {
 
 /** ลงทะเบียน Router */
 require_once 'Home.php';
+require_once 'Test.php';
 
 /** เรียกใช้งาน Method run เพื่อรันคำสั่งของ Route ทั้งหมด */
 $router->run();

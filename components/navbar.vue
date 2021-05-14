@@ -20,10 +20,10 @@
           <li class="px-3 nav-item active">
             <a class="nav-link" href="./">Enjoy's Blog </a>
           </li>
-          <li class="px-3 nav-item">
+          <li class="px-3 nav-item" v-if="!auth.data">
             <a class="nav-link" href="register.html">สมัครสมาชิก</a>
           </li>
-          <li class="px-3 nav-item">
+          <li class="px-3 nav-item" v-if="!auth.data">
             <a class="nav-link" href="login.html">เข้าสู่ระบบ</a>
           </li>
           <li class="px-3 ms-auto text-end nav-item dropdown">
@@ -66,7 +66,7 @@
                 </a>
               </li>
               <li>
-                <a class="dropdown-item">
+                <a class="dropdown-item" href="#" @click="logout">
                   <i class="fas fa-sign-out-alt"></i> ออกจากระบบ
                 </a>
               </li>
@@ -84,6 +84,13 @@
 
 <script>
 module.exports = {
+  props: ['auth'],
+  methods: {
+    logout() {
+      localStorage.clear()
+      location.assign('./')
+    }
+  },
   mounted() {
     window.addEventListener("scroll", function () {
       let wintop = this.scrollY;

@@ -26,7 +26,7 @@
           <li class="px-3 nav-item" v-if="!auth.data">
             <a class="nav-link" href="login.html">เข้าสู่ระบบ</a>
           </li>
-          <li class="px-3 ms-auto text-end nav-item dropdown">
+          <li class="px-3 ms-auto text-end nav-item dropdown"  v-if="auth.data">
             <a
               class="text-end nav-link dropdown-toggle"
               href="#"

@@ -29,7 +29,7 @@
   </head>
   <body>
     <div id="app">
-        <navbar-component></navbar-component>
+      <navbar-component :auth="auth"></navbar-component>
       <section class="container my-5">
         <div class="row justify-content-center">
           <div class="col-lg-8">
@@ -93,11 +93,26 @@
     <script src="node_modules/http-vue-loader/src/httpVueLoader.js"></script>
     <script src="node_modules/axios/dist/axios.min.js"></script>
     <script>
+      const AUTH_DATA = localStorage.getItem("auth_data");
+      const AUTH_TOKEN = localStorage.getItem("auth_token");
+
+      if (!AUTH_DATA && !AUTH_TOKEN) {
+        location.assign("./");
+      }
+
       new Vue({
         el: "#app",
         components: {
           "navbar-component": httpVueLoader("./components/navbar.vue"),
           "footer-component": httpVueLoader("./components/footer.vue"),
+        },
+        data() {
+          return {
+            auth: {
+              token: AUTH_TOKEN,
+              data: AUTH_DATA,
+            },
+          };
         },
       });
     </script>

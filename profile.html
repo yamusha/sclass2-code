@@ -27,7 +27,7 @@
   </head>
   <body>
     <div id="app">
-    <navbar-component></navbar-component>
+    <navbar-component :auth="auth"></navbar-component>
 
     <!-- Profile Header -->
     <section class="profile-page d-flex align-items-center">
@@ -74,12 +74,6 @@
                   class="list-group-item list-group-item-action"
                 >
                   <i class="far fa-user-cog"></i> ตั้งค่าบัญชี
-                </a>
-                <a
-                  href="favorites.html"
-                  class="list-group-item list-group-item-action"
-                >
-                  <i class="far fa-heart"></i> บทความที่ชอบ
                 </a>
               </div>
             </div>
@@ -142,11 +136,27 @@
     <script src="node_modules/http-vue-loader/src/httpVueLoader.js"></script>
     <script src="node_modules/axios/dist/axios.min.js"></script>
     <script>
+      const AUTH_DATA = localStorage.getItem('auth_data')
+      const AUTH_TOKEN = localStorage.getItem('auth_token')
+
+      if(!AUTH_DATA && !AUTH_TOKEN) 
+      {
+        location.assign('./')
+      }
+      
       new Vue({
         el: "#app",
         components: {
           "navbar-component": httpVueLoader("./components/navbar.vue"),
           "footer-component": httpVueLoader("./components/footer.vue"),
+        },
+        data() {
+          return {
+            auth:{
+              token: AUTH_TOKEN,
+              data: AUTH_DATA
+            }
+          };
         },
       });
     </script>

@@ -5,4 +5,3 @@
 |--------------------------------------------------------------------------
 */
 $router->get('/test2', 'TestController@index');
-$router->get('/test3', 'TestController@index2');
